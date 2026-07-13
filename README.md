@@ -33,6 +33,84 @@ cd 67XXXXXXXX-X
 
 ---
 
+## 🌐 วิธีสร้างโปรเจกต์ Spring Boot ใหม่ (ถ้าไม่ Fork)
+
+> Spring Boot **ไม่มีการติดตั้งแยก** — สร้างผ่าน IDE หรือ Spring Initializr แล้ว Maven จะดึง dependency มาให้อัตโนมัติ
+
+---
+
+## 🟣 Eclipse — สร้าง Spring Boot Project
+
+> ต้องติดตั้ง **Spring Tools 4 (STS4)** plugin ก่อน  
+> Help → Eclipse Marketplace → ค้นหา `Spring Tools` → Install
+
+**1. สร้างโปรเจกต์ใหม่**
+- File → New → Other
+- พิมพ์ `Spring` → เลือก **Spring Starter Project** → Next
+
+**2. กรอกข้อมูลโปรเจกต์**
+- Name: `67XXXXXXXX-X`
+- Type: `Maven`
+- Packaging: `Jar`
+- Java Version: `17`
+- Group: `com.example`
+- Artifact: `67XXXXXXXX-X`
+- กด Next
+
+**3. เพิ่ม Dependencies**
+- ช่อง Search พิมพ์ `Spring Web` → ติ๊ก ✓
+- พิมพ์ `DevTools` → ติ๊ก **Spring Boot DevTools** ✓
+- กด Finish
+
+**4. รอ Eclipse ดาวน์โหลด Dependencies**
+- ดูแถบล่างขวา รอจนหาย (ประมาณ 1-3 นาที)
+- โปรเจกต์ปรากฏใน Package Explorer
+
+**5. รันโปรเจกต์**
+- คลิกขวาที่โปรเจกต์ → Run As → **Spring Boot App**
+- Console แสดง `Tomcat started on port 8080` = พร้อมใช้งาน ✅
+
+---
+
+## 🔵 VS Code — สร้าง Spring Boot Project
+
+> ต้องติดตั้ง Extension ก่อน:
+> - **Extension Pack for Java**
+> - **Spring Boot Extension Pack**
+
+**1. เปิด Command Palette**
+- กด `Ctrl+Shift+P` (Windows) หรือ `Cmd+Shift+P` (Mac)
+
+**2. สร้างโปรเจกต์**
+- พิมพ์ `Spring Initializr: Create a Maven Project`
+- กด Enter
+
+**3. เลือกค่าทีละขั้น** (VS Code จะถามทีละอย่าง)
+- Spring Boot version → เลือก `3.3.x`
+- Language → `Java`
+- Group Id → `com.example`
+- Artifact Id → `67XXXXXXXX-X`
+- Packaging → `Jar`
+- Java version → `17`
+
+**4. เพิ่ม Dependencies**
+- พิมพ์ `Spring Web` → กด Space เพื่อติ๊ก ✓
+- พิมพ์ `DevTools` → กด Space เพื่อติ๊ก **Spring Boot DevTools** ✓
+- กด Enter เพื่อยืนยัน
+
+**5. เลือก folder ที่จะเซฟโปรเจกต์**
+- เลือก folder → กด **Generate into this folder**
+- VS Code จะถามให้ Open folder → กด **Open**
+
+**6. รันโปรเจกต์**
+```bash
+# เปิด Terminal (Ctrl+`)
+mvn spring-boot:run
+```
+- Terminal แสดง `Tomcat started on port 8080` = พร้อมใช้งาน ✅
+
+---
+
 ## 🗂️ โครงสร้างโปรเจกต์
 
 ```
@@ -214,8 +292,6 @@ git push origin main
 
 > ⚠️ **GitHub ไม่รับ password ธรรมดาแล้ว** ต้องใช้ Personal Access Token:  
 > GitHub → Settings → Developer settings → Personal access tokens → Generate new token
-> กรณีถ้า Push ไม่ได้ให้ทำวิธีดังกล่าว แต่หากจะPush ไรก็ให้เช็คProfile ก่อน Push เสมอ
-> ในส่วน commit  X ตาม Section ที่ตัวเองลงเรียน
 
 ---
 
@@ -238,7 +314,3 @@ git push origin main
 - [ ] แสดง commit history อย่างน้อย 2 commits
 - [ ] Screenshot Browser ที่เรียก `/api/hello` และ `/api/info`
 - [ ] ส่งไฟล์ PDF ชื่อ `Lab03_xxxxSec#.pdf`
-
----
-
-
